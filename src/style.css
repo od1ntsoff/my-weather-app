@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Hepta Slab", serif;
+  background-color: white;
+}
+.weather-app {
+  min-height: 100vh;
+  background-image: url("../img/fog.jpg");
+  filter: grayscale(10%) opacity(100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: 150ms;
+}
+.container {
+  padding: 50px;
+}
+.container.main-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+h1 {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 100px;
+}
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+.current-location {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.main-icon {
+  text-align: left;
+  font-size: 150px;
+  color: #facf5a;
+  opacity: 80%;
+}
+h3 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+.degrees {
+  position: relative;
+  bottom: 20px;
+  font-size: 20px;
+}
+i {
+  color: #edf7fa;
+}
+
+input {
+  border-radius: 4px;
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  opacity: 70%;
+}
+.input-button {
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  width: 90px;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.input-button:hover {
+  background-color: #36626a;
+  color: white;
+}
+
+.gps-button {
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  width: 90px;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  opacity: 70%;
+}
+
+.gps-button:hover {
+  background-color: #36626a;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  color: white;
+  text-align: left;
+  font-size: 25px;
+}
+
+.col-2 {
+  text-align: center;
+  scroll-snap-type: x mandatory;
+  justify-content: space-between;
+  font-size: 25px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+  bottom: 30px;
+}
