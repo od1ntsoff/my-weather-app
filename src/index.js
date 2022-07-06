@@ -31,22 +31,6 @@ let minute = now.getMinutes();
 let h2 = document.querySelector("h2");
 h2.innerHTML = `${weekDay} ${date}.${month} | ${hour}:${minute}`;
 
-function convertFarenheit(event) {
-  event.preventDefault();
-  let farenheit = document.querySelector("#temp");
-  farenheit.innerHTML = 78;
-}
-let replaceFarenheit = document.querySelector("#farenheit");
-replaceFarenheit.addEventListener("click", convertFarenheit);
-
-function convertCelsius(event) {
-  event.preventDefault();
-  let celsius = document.querySelector("#temp");
-  celsius.innerHTML = 26;
-}
-let replaceCelsius = document.querySelector("#celsius");
-replaceCelsius.addEventListener("click", convertCelsius);
-
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-city-input");
@@ -67,7 +51,8 @@ cityForm.addEventListener("submit", searchCity);
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temp");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
+  temperature.innerHTML = Math.round(celciusTemperature);
   let humidity = document.querySelector("#humidity-level");
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
   let wind = document.querySelector("#wind-speed");
@@ -89,3 +74,29 @@ function getCurrentCity() {
 
 let currentCity = document.querySelector("#gps-button");
 currentCity.addEventListener("click", getCurrentCity);
+
+function convertToFarenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temp");
+
+  let farenhheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(farenhheitTemperature);
+}
+
+function convertToCelcius(event) {
+  event.preventDefault();
+
+  let celciusTemperature = document.querySelector("#temp");
+  temperature.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
+let form = document.querySelector("#city-search");
+form.addEventListener("submit", cityForm);
+
+let farenhheit = document.querySelector("#farenheit");
+farenhheit.addEventListener("click", convertToFarenheit);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", convertToCelcius);

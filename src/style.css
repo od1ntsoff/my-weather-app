@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -20,6 +20,7 @@ body {
   background-size: cover;
   position: relative;
   transition: 150ms;
+  max-width: 1000px;
 }
 .container {
   padding: 50px;
@@ -125,4 +126,6 @@ ul {
 }
 .open-source {
   color: white;
+  position: relative;
+  top: 50px;
 }
