@@ -51,7 +51,9 @@ cityForm.addEventListener("submit", searchCity);
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temp");
+
   celciusTemperature = response.data.main.temp;
+
   temperature.innerHTML = Math.round(celciusTemperature);
   let humidity = document.querySelector("#humidity-level");
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
@@ -81,16 +83,17 @@ function convertToFarenheit(event) {
 
   let farenhheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(farenhheitTemperature);
+  debugger;
 }
 
 function convertToCelcius(event) {
   event.preventDefault();
 
-  let celciusTemperature = document.querySelector("#temp");
-  temperature.innerHTML = Math.round(celciusTemperature);
-}
+  let temperature = document.querySelector("#temp");
 
-let celciusTemperature = null;
+  temperature.innerHTML = Math.round(celciusTemperature);
+  debugger;
+}
 
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", cityForm);
