@@ -129,3 +129,13 @@ ul {
   position: relative;
   top: 50px;
 }
+
+.degrees {
+  text-decoration: none;
+}
+
+.degrees .active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+}

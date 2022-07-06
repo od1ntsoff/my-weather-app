@@ -81,6 +81,8 @@ function convertToFarenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temp");
 
+  celcius.classList.remove("active");
+  farenhheit.classList.add("active");
   let farenhheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(farenhheitTemperature);
   debugger;
@@ -89,6 +91,8 @@ function convertToFarenheit(event) {
 function convertToCelcius(event) {
   event.preventDefault();
 
+  celcius.classList.add("active");
+  farenhheit.classList.remove("active");
   let temperature = document.querySelector("#temp");
 
   temperature.innerHTML = Math.round(celciusTemperature);
