@@ -55,10 +55,18 @@ function showTemperature(response) {
   celciusTemperature = response.data.main.temp;
 
   temperature.innerHTML = Math.round(celciusTemperature);
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity-level");
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = `Wind ${Math.round(response.data.wind.speed)} km/h`;
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showPosition(position) {
@@ -85,7 +93,6 @@ function convertToFarenheit(event) {
   farenhheit.classList.add("active");
   let farenhheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperature.innerHTML = Math.round(farenhheitTemperature);
-  debugger;
 }
 
 function convertToCelcius(event) {
@@ -96,7 +103,6 @@ function convertToCelcius(event) {
   let temperature = document.querySelector("#temp");
 
   temperature.innerHTML = Math.round(celciusTemperature);
-  debugger;
 }
 
 let form = document.querySelector("#city-search");

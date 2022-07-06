@@ -40,18 +40,14 @@ h2 {
   text-align: center;
   color: white;
   font-size: 25px;
+  text-transform: capitalize;
 }
 .current-location {
   display: block;
   text-align: center;
   width: 100%;
 }
-.main-icon {
-  text-align: left;
-  font-size: 150px;
-  color: #facf5a;
-  opacity: 80%;
-}
+
 h3 {
   text-align: center;
   color: white;
@@ -108,7 +104,7 @@ ul {
   list-style: none;
   color: white;
   text-align: left;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .col-2 {
