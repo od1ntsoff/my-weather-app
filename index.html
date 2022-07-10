@@ -27,6 +27,22 @@
   </head>
   <body>
     <div class="weather-app">
+ 
+          <div id="city-search">
+          <form id="search-form">
+            <div class="row">
+              <div class="col-6">
+            <input type="text" placeholder="Type your city" id="search-city-input" class="form-control"/>
+              </div>
+              <div class="col-3">
+            <input class="input-button" type="submit" value="🔎Search" />
+              </div>
+              <div class="col-3">   
+            <button class="gps-button" id="gps-button">Use GPS</button>  
+              </div>
+          </div>
+
+          </form>
      <div class="container main-info">
         <div class="current-location">
           <h1 class="city">KYIV</h1>
@@ -38,13 +54,7 @@
             <a href="#" id="farenheit">F</a> </span></h3>
           </div>
         </div>
-
-        <div id="city-search">
-          <form>
-            <input type="text" placeholder="Type your city" id="search-city-input"/>
-            <input class="input-button" type="submit" value="🔎Search" />
-          </form>
-          <button class="gps-button" id="gps-button">Use GPS</button>
+          
           <ul class="details">
             <li><i class="fa-solid fa-sun" id="precipitation"></i>Precipitation</li>
             <li><i class="fa-solid fa-droplet"></i> <span id="humidity-level">Humidity 31%</span></li>
