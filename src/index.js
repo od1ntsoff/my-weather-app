@@ -48,16 +48,18 @@ function searchCity(event) {
 let cityForm = document.querySelector("#city-search");
 cityForm.addEventListener("submit", searchCity);
 
-function displayForcast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let forcastHTML = `<div class="row"`;
   let days = ["Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `<div class="row">
-          <div class="col-2">
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
             <div class="weather-forecast-date">${day}</div>
             <img src="http://openweathermap.org/img/wn/10d@2x.png" 
             alt="" 
@@ -67,12 +69,18 @@ function displayForcast() {
              <span class="weather-forecast-temperature-min">12°</span>
             </div>
           </div>
-          </div>
       `;
   });
 
-  forcastHTML = forcastHTML + `</div>`;
-  forecastElement.innerHTML = forcastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates.lat);
+  let key = "bc1c6f1266bbc4061cb1b2ae362057fa";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
+  axios.get(`${apiUrl}&appid=${key}`).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -92,6 +100,8 @@ function showTemperature(response) {
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
   wind.innerHTML = `Wind ${Math.round(response.data.wind.speed)} km/h`;
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -138,5 +148,3 @@ farenhheit.addEventListener("click", convertToFarenheit);
 
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
-
-displayForcast();
