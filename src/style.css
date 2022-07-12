@@ -112,25 +112,6 @@ ul {
   font-size: 20px;
 }
 
-.col-2 {
-  text-align: center;
-  scroll-snap-type: x mandatory;
-  justify-content: space-between;
-  font-size: 25px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  position: relative;
-  top: 10px;
-  bottom: 30px;
-}
-.open-source {
-  color: white;
-  position: relative;
-  top: 50px;
-}
-
 .degrees {
   text-decoration: none;
 }
@@ -139,4 +120,26 @@ ul {
   color: white;
   cursor: default;
   text-decoration: none;
+}
+
+.weather-forecast {
+  color: white;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 25px;
+}
+
+.weather-forecast-temperatures {
+  font-size: 20px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.3;
+}
+
+.open-source {
+  color: black;
+  position: relative;
 }
