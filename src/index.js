@@ -114,7 +114,7 @@ function showTemperature(response) {
   temperature.innerHTML = Math.round(celciusTemperature);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
-  wind.innerHTML = `Wind ${Math.round(response.data.wind.speed)} km/h`;
+  wind.innerHTML = `Wind ${Math.round(response.data.wind.speed)} m/h`;
   icon.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
