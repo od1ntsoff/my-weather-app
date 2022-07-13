@@ -104,6 +104,7 @@ function showTemperature(response) {
   let temperature = document.querySelector("#temp");
   celciusTemperature = response.data.main.temp;
   let description = document.querySelector("#description");
+  let feelslike = document.querySelector("#feels-like");
   let humidity = document.querySelector("#humidity-level");
   let wind = document.querySelector("#wind-speed");
   let icon = document.querySelector("#icon");
@@ -113,6 +114,9 @@ function showTemperature(response) {
   );
   temperature.innerHTML = Math.round(celciusTemperature);
   description.innerHTML = response.data.weather[0].description;
+  feelslike.innerHTML = `Feels like ${Math.round(
+    response.data.main.feels_like
+  )}°C`;
   humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
   wind.innerHTML = `Wind ${Math.round(response.data.wind.speed)} m/h`;
   icon.setAttribute("alt", response.data.weather[0].description);
@@ -164,3 +168,23 @@ farenhheit.addEventListener("click", convertToFarenheit);
 
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
+
+function changeBackground() {
+  let date = new Date();
+  let day = date.getHours();
+  if (day >= 5 && day < 9) {
+    document.getElementById("backgroundimg").className = "clouds";
+  } else if (day >= 9 && day < 12) {
+    document.getElementById("background-images").className = "sunny";
+  } else if (day >= 12 && day < 15) {
+    document.getElementById("background-images").className = "sunny";
+  } else if (day >= 15 && day < 18) {
+    document.getElementById("backgroundimg").className = "fog";
+  } else if (day >= 18 && day < 21) {
+    document.getElementById("background-images").className = "storm";
+  } else {
+    document.getElementById("background-images").className = "storm";
+  }
+}
+
+changeBackground();

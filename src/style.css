@@ -1,5 +1,5 @@
 * {
-  margin: 0 auto;
+  margin: 5px auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -13,17 +13,43 @@ body {
 }
 .weather-app {
   min-height: 90vh;
+  margin: 10px auto;
   filter: grayscale(10%) opacity(100%);
-  background-image: url("../img/storm.jpg");
+}
+.weather-app,
+#backgroundimg {
+  min-height: 90vh;
+  filter: grayscale(10%) opacity(100%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
   transition: 150ms;
   max-width: 900px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
 }
+.dawn {
+  background: url("../img/dawn.jpg");
+}
+.clouds {
+  background: url("../img/clouds.jpg");
+}
+.sunny {
+  background: url("../img/sunny.jpg");
+}
+.rain {
+  background: url("../img/rain.jpg");
+}
+.fog {
+  background: url("../img/fog.jpg");
+}
+.storm {
+  background: url("../img/storm.jpg");
+}
+.night {
+  background: url("../img/night.jpg");
+}
+
 .container {
   padding: 50px;
 }
@@ -112,6 +138,8 @@ ul {
   color: white;
   text-align: left;
   font-size: 20px;
+  padding-left: 0;
+  width: 300px;
 }
 
 .degrees {
