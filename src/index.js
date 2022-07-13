@@ -173,17 +173,17 @@ function changeBackground() {
   let date = new Date();
   let day = date.getHours();
   if (day >= 5 && day < 9) {
-    document.getElementById("backgroundimg").className = "clouds";
+    document.getElementById("backgroundimg").className = "dawn";
   } else if (day >= 9 && day < 12) {
-    document.getElementById("background-images").className = "sunny";
+    document.getElementById("backgroundimg").className = "sunny";
   } else if (day >= 12 && day < 15) {
-    document.getElementById("background-images").className = "sunny";
+    document.getElementById("backgroundimg").className = "clouds";
   } else if (day >= 15 && day < 18) {
     document.getElementById("backgroundimg").className = "fog";
   } else if (day >= 18 && day < 21) {
-    document.getElementById("background-images").className = "storm";
+    document.getElementById("backgroundimg").className = "storm";
   } else {
-    document.getElementById("background-images").className = "storm";
+    document.getElementById("backgroundimg").className = "night";
   }
 }
 
