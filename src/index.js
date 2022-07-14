@@ -140,34 +140,8 @@ function getCurrentCity() {
 let currentCity = document.querySelector("#gps-button");
 currentCity.addEventListener("click", getCurrentCity);
 
-function convertToFarenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temp");
-
-  celcius.classList.remove("active");
-  farenhheit.classList.add("active");
-  let farenhheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(farenhheitTemperature);
-}
-
-function convertToCelcius(event) {
-  event.preventDefault();
-
-  celcius.classList.add("active");
-  farenhheit.classList.remove("active");
-  let temperature = document.querySelector("#temp");
-
-  temperature.innerHTML = Math.round(celciusTemperature);
-}
-
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", cityForm);
-
-let farenhheit = document.querySelector("#farenheit");
-farenhheit.addEventListener("click", convertToFarenheit);
-
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", convertToCelcius);
 
 function changeBackground() {
   let date = new Date();
