@@ -162,3 +162,4 @@ function changeBackground() {
 }
 
 changeBackground();
+showPosition();
