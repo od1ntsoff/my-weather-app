@@ -133,7 +133,8 @@ function showPosition(position) {
   axios.get(`${apiUrl}&appid=${key}`).then(showTemperature);
 }
 
-function getCurrentCity() {
+function getCurrentCity(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
@@ -162,4 +163,3 @@ function changeBackground() {
 }
 
 changeBackground();
-showPosition();
