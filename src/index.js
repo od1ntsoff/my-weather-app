@@ -31,23 +31,6 @@ let minute = now.getMinutes();
 let h2 = document.querySelector("h2");
 h2.innerHTML = `${weekDay} ${date}.${month} | ${hour}:${minute}`;
 
-function searchCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-city-input");
-  let h1 = document.querySelector("h1");
-  if (cityInput.value) {
-    h1.innerHTML = `${cityInput.value}`;
-  } else {
-    alert(`Please enter your city`);
-  }
-  let key = "bc1c6f1266bbc4061cb1b2ae362057fa";
-  let city = `${cityInput.value}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
-  axios.get(`${apiUrl}&appid=${key}`).then(showTemperature);
-}
-let cityForm = document.querySelector("#city-search");
-cityForm.addEventListener("submit", searchCity);
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -102,7 +85,7 @@ function getForecast(coordinates) {
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temp");
-  celciusTemperature = response.data.main.temp;
+  let cityElement = document.querySelector("#city");
   let description = document.querySelector("#description");
   let feelslike = document.querySelector("#feels-like");
   let humidity = document.querySelector("#humidity-level");
@@ -112,7 +95,8 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  temperature.innerHTML = Math.round(celciusTemperature);
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   feelslike.innerHTML = `Feels like ${Math.round(
     response.data.main.feels_like
@@ -133,6 +117,21 @@ function showPosition(position) {
   axios.get(`${apiUrl}&appid=${key}`).then(showTemperature);
 }
 
+function searchCity(city) {
+  let key = "bc1c6f1266bbc4061cb1b2ae362057fa";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
+  axios.get(`${apiUrl}&appid=${key}`).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-city-input");
+  searchCity(cityInputElement.value);
+}
+
+let cityForm = document.querySelector("#search-city-input");
+cityForm.addEventListener("submit", handleSubmit);
+
 function getCurrentCity(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
@@ -142,7 +141,7 @@ let currentCity = document.querySelector("#gps-button");
 currentCity.addEventListener("click", getCurrentCity);
 
 let form = document.querySelector("#city-search");
-form.addEventListener("submit", cityForm);
+form.addEventListener("submit", handleSubmit);
 
 function changeBackground() {
   let date = new Date();
@@ -162,4 +161,5 @@ function changeBackground() {
   }
 }
 
+searchCity("Zhytomyr");
 changeBackground();
